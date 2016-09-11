@@ -5,6 +5,7 @@ module.exports = function(config) {
         files: [
             'node_modules/angular/angular.min.js',
             'node_modules/angular-mocks/angular-mocks.js',
+            'node_modules/angular-material/angular-material-mocks.js',
             'js/*.js',
             'tests/*.js'
         ],
