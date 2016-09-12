@@ -14,5 +14,16 @@ angular.module('mynewanimalfriend', [
   .when('/login', {
     templateUrl: 'templates/login.html',
     controller: 'LoginCtrl'
+  })
+  .when('/', {
+    templateUrl: 'templates/home.html',
+    controller: 'HomeCtrl'
+  })
+  .when('/logout', {
+    templateUrl: 'templates/login.html',
+    controller: 'LogoutCtrl'
+  })
+  .otherwise({
+    redirectTo: '/'
   });
 });
