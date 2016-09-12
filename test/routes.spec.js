@@ -7,5 +7,4 @@ describe('Routes', function () {
       expect($route.routes['/login'].templateUrl).toEqual('templates/login.html');
     });
   });
-
 });
