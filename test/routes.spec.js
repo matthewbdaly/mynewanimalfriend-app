@@ -1,3 +1,5 @@
+'use strict';
+
 describe('Routes', function () {
 
   beforeEach(angular.mock.module('mynewanimalfriend'));

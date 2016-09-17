@@ -1,12 +1,16 @@
+'use strict';
+
 require('angular');
 require('angular-route');
 require('angular-animate');
 require('angular-material');
+require('./services');
 
 angular.module('mynewanimalfriend', [
   'ngRoute',
   'ngAnimate',
-  'ngMaterial'
+  'ngMaterial',
+  'mynewanimalfriend.services'
 ])
 
 .config(function ($routeProvider) {
