@@ -19,6 +19,10 @@ angular.module('mynewanimalfriend', [
       .accentPalette('cyan');
 })
 
+.config(function($locationProvider) {
+  $locationProvider.html5Mode(true);
+})
+
 .run(['$rootScope', '$location', 'Auth', function ($rootScope, $location, Auth) {
   $rootScope.$on('$routeChangeStart', function (event) {
 
