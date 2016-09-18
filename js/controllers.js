@@ -24,4 +24,12 @@ angular.module('mynewanimalfriend.controllers', [
         alert('Unable to log in - please check your details are correct');
     });
   };
+})
+
+.controller('LogoutCtrl', function ($scope, $location, Auth) {
+  // Log user out
+  Auth.logUserOut();
+
+  // Redirect to login page
+  $location.path('/login');
 });

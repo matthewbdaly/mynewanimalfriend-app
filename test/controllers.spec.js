@@ -60,4 +60,26 @@ describe('Controllers', function () {
       expect(localStorage.getItem('authHeader')).toEqual('Bearer 123');
     });
   });
+
+  describe('Logout Controller', function () {
+    var scope;
+    
+    beforeEach(inject(function ($rootScope, $controller, Auth) {
+      Auth.setUser('Blah');
+      scope = $rootScope.$new();
+      $controller('LogoutCtrl', {
+        $scope: scope
+      });
+    }));
+
+    // Test controller scope is defined
+    it('should define the scope', function () {
+      expect(scope).toBeDefined();
+    });
+
+    // Test session cleared
+    it('should clear the session', function () {
+      expect(localStorage.getItem('authHeader')).toEqual(null);
+    });
+  });
 });
