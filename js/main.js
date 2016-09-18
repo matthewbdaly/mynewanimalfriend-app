@@ -10,8 +10,24 @@ angular.module('mynewanimalfriend', [
   'ngRoute',
   'ngAnimate',
   'ngMaterial',
-  'mynewanimalfriend.services'
+  'mynewanimalfriend.controllers'
 ])
+
+.run(['$rootScope', '$location', 'Auth', function ($rootScope, $location, Auth) {
+  $rootScope.$on('$routeChangeStart', function (event) {
+
+    if (!Auth.isLoggedIn()) {
+      if ($location.path() !== '/login') {
+        $location.path('/login');
+      }
+    }
+  });
+}])
+
+.config(['$httpProvider', function($httpProvider) {
+  $httpProvider.interceptors.push('sessionInjector');
+  $httpProvider.interceptors.push('authInterceptor');
+}])
 
 .config(function ($routeProvider) {
   $routeProvider

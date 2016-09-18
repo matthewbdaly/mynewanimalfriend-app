@@ -22,4 +22,28 @@ angular.module('mynewanimalfriend.services', ['ngResource'])
 
 .factory('Token', function ($resource) {
   return $resource('/api/authenticate/');
+})
+
+.factory('sessionInjector', function (Auth) {
+  var sessionInjector = {
+    request: function (config) {
+      if (Auth.isLoggedIn()) {
+        config.headers.Authorization = Auth.isLoggedIn();
+      }
+      return config;
+    }
+  };
+  return sessionInjector;
+})
+
+.service('authInterceptor', function ($q, Auth, $location) {
+  var service = this;
+
+  service.responseError = function (response) {
+    if (response.status == 400) {
+      Auth.logUserOut();
+      $location.path('/login');
+    }
+    return $q.reject(response);
+  };
 });
