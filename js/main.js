@@ -13,6 +13,12 @@ angular.module('mynewanimalfriend', [
   'mynewanimalfriend.controllers'
 ])
 
+.config(function ($mdThemingProvider) {
+    $mdThemingProvider.theme('default')
+      .primaryPalette('purple')
+      .accentPalette('cyan');
+})
+
 .run(['$rootScope', '$location', 'Auth', function ($rootScope, $location, Auth) {
   $rootScope.$on('$routeChangeStart', function (event) {
 
