@@ -27,7 +27,7 @@ describe('Services', function () {
     }));
 
     it('can create a new token', function () {
-      mockBackend.expectPOST('/api/authenticate', '{"email":"bob@example.com","password":"password"}').respond({token: 'mytoken'});
+      mockBackend.expectPOST('http://localhost:8000/api/authenticate', '{"email":"bob@example.com","password":"password"}').respond({token: 'mytoken'});
       var token = new Token({
         email: 'bob@example.com',
         password: 'password'

@@ -42,7 +42,7 @@ describe('Controllers', function () {
     // Test doLogin works
     it('should allow the user to log in', function () {
       // Mock the backend
-      mockBackend.expectPOST('/api/authenticate', '{"email":"user@example.com","password":"password"}').respond({token: 123});
+      mockBackend.expectPOST('http://localhost:8000/api/authenticate', '{"email":"user@example.com","password":"password"}').respond({token: 123});
 
       // Define login data
       scope.credentials = {

@@ -21,7 +21,7 @@ angular.module('mynewanimalfriend.services', ['ngResource'])
 })
 
 .factory('Token', function ($resource) {
-  return $resource('/api/authenticate/');
+  return $resource('http://localhost:8000/api/authenticate/');
 })
 
 .factory('sessionInjector', function (Auth) {
