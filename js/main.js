@@ -4,7 +4,7 @@ require('angular');
 require('angular-route');
 require('angular-animate');
 require('angular-material');
-require('./services');
+require('./controllers');
 
 angular.module('mynewanimalfriend', [
   'ngRoute',
