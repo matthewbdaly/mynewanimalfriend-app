@@ -32,4 +32,7 @@ angular.module('mynewanimalfriend.controllers', [
 
   // Redirect to login page
   $location.path('/login');
+})
+
+.controller('HomeCtrl', function ($scope) {
 });

@@ -82,4 +82,20 @@ describe('Controllers', function () {
       expect(localStorage.getItem('authHeader')).toEqual(null);
     });
   });
+
+  describe('Home Controller', function () {
+    var scope;
+
+    beforeEach(inject(function ($rootScope, $controller) {
+      scope = $rootScope.$new();
+      $controller('HomeCtrl', {
+        $scope: scope
+      });
+    }));
+
+    // Test controller scope is defined
+    it('should define the scope', function () {
+      expect(scope).toBeDefined();
+    });
+  });
 });
