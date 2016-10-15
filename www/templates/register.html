@@ -1,0 +1,26 @@
+<md-content md-theme="default" layout-gt-sm="row" layout-padding>
+	<div>
+		<md-input-container class="md-block">
+			<label>Email</label>
+			<input ng-model="credentials.email" type="email">
+		</md-input-container>
+
+		<md-input-container class="md-block">
+			<label>Username</label>
+			<input ng-model="credentials.name" type="textemail">
+		</md-input-container>
+
+		<md-input-container class="md-block">
+			<label>Password</label>
+			<input ng-model="credentials.password" type="password">
+		</md-input-container>
+
+		<md-input-container class="md-block">
+			<label>Confirm Password</label>
+			<input ng-model="credentials.password_confirmation" type="password">
+		</md-input-container>
+
+		<md-button class="md-raised md-primary" ng-click="doRegister()">Submit</md-button>
+		<md-button class="md-raised md-primary" href="/login">Log in</md-button>
+	</div>
+</md-content>
