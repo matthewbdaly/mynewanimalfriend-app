@@ -11,6 +11,12 @@ angular.module('mynewanimalfriend.services', ['ngResource'])
   });
 })
 
+.factory('Pet', function ($resource) {
+  return $resource('http://localhost:8000/api/pets/:id', null, {
+    'update': { method: 'PATCH' }
+  });
+})
+
 .factory('Auth', function(){
   return{
     setUser : function (aUser) {

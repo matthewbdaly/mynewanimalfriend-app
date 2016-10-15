@@ -87,4 +87,21 @@ describe('Services', function () {
       mockBackend.flush();
     });
   });
+
+  describe('Pet service', function () {
+    var mockBackend, Pet;
+
+    beforeEach(inject(function (_Pet_, _$httpBackend_) {
+      Pet = _Pet_;
+      mockBackend = _$httpBackend_;
+    }));
+
+    it('can fetch pets', function () {
+      mockBackend.expectGET('http://localhost:8000/api/pets').respond([{id:1,name:"Freddie",type:"Cat"}]);
+      expect(Pet).toBeDefined();
+      var pets = Pet.query();
+      mockBackend.flush();
+      expect(pets).toEqualData([{id: 1,name:"Freddie",type:"Cat"}]);
+    });
+  });
 });
