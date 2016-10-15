@@ -52,5 +52,6 @@ angular.module('mynewanimalfriend.controllers', [
   $location.path('/login');
 })
 
-.controller('HomeCtrl', function ($scope) {
+.controller('HomeCtrl', function ($scope, Pet, pets) {
+  $scope.pets = pets;
 });

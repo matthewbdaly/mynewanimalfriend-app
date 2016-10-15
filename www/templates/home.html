@@ -1,7 +1,21 @@
 <md-toolbar>
-    <div class="md-toolbar-tools">
-        <md-button aria-label="Log out" href="/logout">
-            Log out
-        </md-button>
-    </div>
+	<div class="md-toolbar-tools">
+		<md-button aria-label="Log out" href="/logout">
+			Log out
+		</md-button>
+	</div>
 </md-toolbar>
+
+<div layout="column" flex="grow" layout-align="center stretch">
+	<md-card md-theme="default" ng-repeat="pet in pets">
+		<md-card-title>
+			<md-card-title-text>
+                <span class="md-headline">{{ pet.name }}</span>
+                <span class="md-subhead">{{ pet.type }}</span>
+			</md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+            <img class="md-card-image md-media-lg" ng-src="{{ pet.picture }}"></img>
+        </md-card-content>
+    </md-card>
+</div>

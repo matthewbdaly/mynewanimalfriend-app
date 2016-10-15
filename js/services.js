@@ -17,6 +17,18 @@ angular.module('mynewanimalfriend.services', ['ngResource'])
   });
 })
 
+.factory('PetsLoader', ['Pet', '$q', function (Pet, $q) {
+  return function () {
+    var delay = $q.defer();
+    Pet.query(function (response) {
+      delay.resolve(response);
+    }, function () {
+      delay.reject('Unable to fetch pets');
+    });
+    return delay.promise;
+  };
+}])
+
 .factory('Auth', function(){
   return{
     setUser : function (aUser) {

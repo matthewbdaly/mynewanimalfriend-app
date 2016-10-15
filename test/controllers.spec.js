@@ -129,18 +129,25 @@ describe('Controllers', function () {
   });
 
   describe('Home Controller', function () {
-    var scope;
+    var pets, scope;
 
-    beforeEach(inject(function ($rootScope, $controller) {
+    beforeEach(inject(function ($rootScope, $controller, Pet) {
+      pets = Pet;
       scope = $rootScope.$new();
       $controller('HomeCtrl', {
-        $scope: scope
+        $scope: scope,
+        pets: [{id:1},{id:2}]
       });
     }));
 
     // Test controller scope is defined
     it('should define the scope', function () {
       expect(scope).toBeDefined();
+    });
+
+    // Test pets
+    it('should define the pets', function () {
+      expect(scope.pets).toEqualData([{id: 1}, {id: 2}]);
     });
   });
 });

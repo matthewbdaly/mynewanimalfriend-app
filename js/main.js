@@ -51,7 +51,12 @@ angular.module('mynewanimalfriend', [
   })
   .when('/', {
     templateUrl: 'templates/home.html',
-    controller: 'HomeCtrl'
+    controller: 'HomeCtrl',
+    resolve: {
+      pets: ['PetsLoader', function (PetsLoader) {
+        return PetsLoader();
+      }]
+    }
   })
   .when('/logout', {
     templateUrl: 'templates/login.html',
