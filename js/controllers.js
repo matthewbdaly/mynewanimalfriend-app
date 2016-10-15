@@ -26,6 +26,24 @@ angular.module('mynewanimalfriend.controllers', [
   };
 })
 
+
+.controller('RegisterCtrl', function ($scope, $location, User, Auth) {
+  $scope.doRegister = function () {
+    var user = new User($scope.credentials);
+    user.$save(function (response) {
+      if (response.token) {
+        // Set up auth service
+        Auth.setUser(response.token);
+
+        // Redirect
+        $location.path('/');
+      }
+    }, function (err) {
+        alert('Unable to log in - please check your details are correct');
+    });
+  };
+})
+
 .controller('LogoutCtrl', function ($scope, $location, Auth) {
   // Log user out
   Auth.logUserOut();

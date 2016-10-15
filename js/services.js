@@ -6,7 +6,7 @@ require("angular-resource");
 angular.module('mynewanimalfriend.services', ['ngResource'])
 
 .factory('User', function ($resource) {
-  return $resource('/api/users/:id', null, {
+  return $resource('http://localhost:8000/api/users/:id', null, {
     'update': { method: 'PATCH' }
   });
 })

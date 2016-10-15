@@ -18,6 +18,51 @@ describe('Controllers', function () {
 
   beforeEach(angular.mock.module('mynewanimalfriend.controllers'));
 
+  describe('Register Controller', function () {
+    var mockBackend, scope;
+
+    beforeEach(inject(function ($rootScope, $controller, _$httpBackend_) {
+      mockBackend = _$httpBackend_;
+      scope = $rootScope.$new();
+      $controller('RegisterCtrl', {
+        $scope: scope
+      });
+    }));
+
+    // Test controller scope is defined
+    it('should define the scope', function () {
+      expect(scope).toBeDefined();
+    });
+
+    // Test doRegister is defined
+    it('should define the register method', function () {
+      expect(scope.doRegister).toBeDefined();
+    });
+
+    // Test doRegister works
+    it('should allow the user to register', function () {
+      // Mock the backend
+      mockBackend.expectPOST('http://localhost:8000/api/users', '{"email":"user@example.com","name":"bobsmith","password":"password","password_confirmation":"password"}').respond({token: 123});
+
+      // Define login data
+      scope.credentials = {
+        email: 'user@example.com',
+        name: "bobsmith",
+        password: 'password',
+        password_confirmation: 'password'
+      };
+
+      //  Submit the request
+      scope.doRegister();
+
+      // Flush the backend
+      mockBackend.flush();
+
+      // Check login complete
+      expect(localStorage.getItem('authHeader')).toEqual('Bearer 123');
+    });
+  });
+
   describe('Login Controller', function () {
     var mockBackend, scope;
 

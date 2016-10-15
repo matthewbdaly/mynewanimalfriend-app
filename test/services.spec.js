@@ -74,7 +74,7 @@ describe('Services', function () {
     }));
 
     it('can create a new user', function () {
-      mockBackend.expectPOST('/api/users', '{"email":"bob@example.com","name":"bobsmith","password":"password","password_confirmation":"password"}').respond({token: 'mytoken'});
+      mockBackend.expectPOST('http://localhost:8000/api/users', '{"email":"bob@example.com","name":"bobsmith","password":"password","password_confirmation":"password"}').respond({token: 'mytoken'});
       var user = new User({
         email: 'bob@example.com',
         name: 'bobsmith',
