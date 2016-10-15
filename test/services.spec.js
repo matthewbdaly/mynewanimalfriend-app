@@ -64,4 +64,27 @@ describe('Services', function () {
       expect(localStorage.getItem('authHeader')).toBeFalsy();
     });
   });
+
+  describe('User service', function () {
+    var mockBackend, User;
+
+    beforeEach(inject(function (_User_, _$httpBackend_) {
+      User = _User_;
+      mockBackend = _$httpBackend_;
+    }));
+
+    it('can create a new user', function () {
+      mockBackend.expectPOST('/api/users', '{"email":"bob@example.com","name":"bobsmith","password":"password","password_confirmation":"password"}').respond({token: 'mytoken'});
+      var user = new User({
+        email: 'bob@example.com',
+        name: 'bobsmith',
+        password: 'password',
+        password_confirmation: 'password'
+      });
+      user.$save(function (response) {
+        expect(response).toEqualData({token: 'mytoken'});
+      });
+      mockBackend.flush();
+    });
+  });
 });

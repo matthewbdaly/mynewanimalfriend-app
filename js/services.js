@@ -5,6 +5,12 @@ require("angular-resource");
 
 angular.module('mynewanimalfriend.services', ['ngResource'])
 
+.factory('User', function ($resource) {
+  return $resource('/api/users/:id', null, {
+    'update': { method: 'PATCH' }
+  });
+})
+
 .factory('Auth', function(){
   return{
     setUser : function (aUser) {
