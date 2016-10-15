@@ -27,7 +27,7 @@ angular.module('mynewanimalfriend', [
   $rootScope.$on('$routeChangeStart', function (event) {
 
     if (!Auth.isLoggedIn()) {
-      if ($location.path() !== '/login') {
+      if ($location.path() !== '/login' && $location.path() !== '/register') {
         $location.path('/login');
       }
     }
@@ -44,6 +44,10 @@ angular.module('mynewanimalfriend', [
   .when('/login', {
     templateUrl: 'templates/login.html',
     controller: 'LoginCtrl'
+  })
+  .when('/register', {
+    templateUrl: 'templates/register.html',
+    controller: 'RegisterCtrl'
   })
   .when('/', {
     templateUrl: 'templates/home.html',

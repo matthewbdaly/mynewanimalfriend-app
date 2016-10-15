@@ -29,4 +29,11 @@ describe('Routes', function () {
       expect($route.routes[null].redirectTo).toEqual('/')
     });
   });
+
+  it('should map register route to register controller', function () {
+    inject(function ($route) {
+      expect($route.routes['/register'].controller).toBe('RegisterCtrl');
+      expect($route.routes['/register'].templateUrl).toEqual('templates/register.html');
+    });
+  });
 });
