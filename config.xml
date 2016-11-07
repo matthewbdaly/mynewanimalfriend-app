@@ -1,13 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="uk.co.matthewdaly.mynewanimalfriend" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
-<gap:platform name="android" />
-  <name>My New Animal Friend</name>
-  <description>
+    <gap:platform name="android" />
+    <name>My New Animal Friend</name>
+    <description>
         An app for finding a new pet
     </description>
-  <author email="matthew@matthewdaly.co.uk" href="http://matthewdaly.co.uk/">
-      Matthew Daly
+    <author email="matthew@matthewdaly.co.uk" href="http://matthewdaly.co.uk/">
+        Matthew Daly
     </author>
-  <content src="index.html"/>
-  <access origin="*" />
+    <content src="index.html"/>
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="android-minSdkVersion" value="14" />
+    <plugin name="cordova-plugin-device" source="npm" spec="~1.1.1" />
+    <plugin name="cordova-plugin-dialogs" source="npm" spec="~1.2.0" />
+    <plugin name="cordova-plugin-file-transfer" source="npm" spec="~1.5.0" />
+    <plugin name="cordova-plugin-network-information" source="npm" spec="~1.2.0" />
+    <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="file://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+    </platform>
+    <access origin="*" />
 </widget>
