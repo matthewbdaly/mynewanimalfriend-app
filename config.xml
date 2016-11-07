@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<widget id="uk.co.matthewdaly.mynewanimalfriend" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
+<gap:platform name="android" />
+  <name>My New Animal Friend</name>
+  <description>
+        An app for finding a new pet
+    </description>
+  <author email="matthew@matthewdaly.co.uk" href="http://matthewdaly.co.uk/">
+      Matthew Daly
+    </author>
+  <content src="index.html"/>
+  <access origin="*" />
+</widget>
